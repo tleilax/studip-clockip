@@ -1,0 +1,25 @@
+.clockip {
+	color: #8a9bb9;
+	position: absolute;
+	right: 16px;
+	top: 128px;
+	z-index: 10;
+}
+/* Local changes: Uni Oldenburg */
+.clockip.uni-oldenburg {
+	color: #ddd;
+	font-size: 24px;
+	right: 25px;
+	top: 115px;
+}
+/* Local changes: Uni Augsburg */
+.clockip.uni-augsburg {
+	font-size: 13px;
+}
+.clockip.uni-augsburg.sidebar {
+	color: red;
+	font-size: 14px;
+	left: 0;
+	position: relative;
+	top: 0;
+}
