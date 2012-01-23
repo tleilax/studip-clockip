@@ -35,8 +35,7 @@
     return ('0' + what).slice(-2);
   };
   Clock = function(element, offset, format) {
-    var adjust, display, interval, metadata, _ref,
-      _this = this;
+    var adjust, display, interval, metadata, _ref;
     if (element == null) element = '.clockip';
     if (offset == null) offset = 0;
     if (format == null) format = 'H:i:s';
@@ -50,7 +49,7 @@
     };
     this.start = function() {
       var interval;
-      _this.stop();
+      this.stop();
       return interval = setInterval(display, 100);
     };
     this.stop = function() {

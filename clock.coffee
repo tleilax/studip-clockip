@@ -31,15 +31,15 @@
 
     # define clock pseudo-class
     Clock = (element = '.clockip', offset = 0, format = 'H:i:s') ->
-        adjust = (timestamp) =>
+        adjust = (timestamp) ->
             offset = if timestamp then timestamp - (new Date()).getTime() else 0
-        display = =>
+        display = ->
             now = (new Date()).getTime()
             element.text date(now + offset, format)
-        @start = =>
+        @start = ->
             @stop()
             interval = setInterval(display, 100)
-        @stop = =>
+        @stop = ->
             clearInterval(interval) unless interval is null
             interval = null
 
