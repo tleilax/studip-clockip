@@ -4,4 +4,7 @@ Adds a clock to Stud.IP.
 
 ## Local changes
 
-Adjust clock.css to your needs. Date and time format can be adjusted in the class itself.
+Adjust **clock.css** or **clock.sass** to your needs.
+Date and time format can be adjusted in the class itself (see *ClockIP::FORMAT* in **ClockIP.php**).
+
+Send a pull request and I will try to integrate your local changes.

@@ -1,23 +1,24 @@
 .clockip
     color: #8a9bb9
     position: absolute
-    right: 16px
+    right: 6px
     top: 128px
     z-index: 10
 
-
     &.uni-oldenburg
-        color: #ddd
-        font-size: 24px
-        right: 25px
-        top: 115px
+        color: #444
+        right: 35px
+        top: 166px
 
     &.uni-augsburg
         font-size: 13px
-
         &.sidebar
             color: red
             font-size: 14px
             left: 0
             position: relative
             top: 0
+
+@media print
+    .clockip
+        display: none
