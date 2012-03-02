@@ -11,7 +11,10 @@
  * @license     http://www.gnu.org/licenses/gpl-2.0.html GPL version 2
  * @version     1.2
  */
-@include_once 'lib/classes/UpdateInformation.class.php';
+
+if ($GLOBALS['SOFTWARE_VERSION'] >= '2.2') {
+    @include_once 'lib/classes/UpdateInformation.class.php';
+}
 
 class ClockIP extends StudipPlugin implements SystemPlugin
 {
@@ -22,7 +25,7 @@ class ClockIP extends StudipPlugin implements SystemPlugin
         parent::__construct();
 
         // Stud.IP 2.2: Periodically adjust clock
-        if (class_exists('UpdateInformation') and UpdateInformation::isCollecting()) {
+        if (class_exists('UpdateInformation') && mt_rand(0, 10) == 0 && UpdateInformation::isCollecting()) {
             UpdateInformation::setInformation('CLOCK.adjust', floor(microtime(true) * 1000));
             return;
         }
@@ -30,11 +33,11 @@ class ClockIP extends StudipPlugin implements SystemPlugin
         $additional_classes = '';
     // Local changes:
         // Uni Oldenburg
-        if (strpos($GLOBALS['ABSOLUTE_URI_STUDIP'], 'oldenburg') !== false) {
+        if (strpos($GLOBALS['STUDIP_INSTALLATION_ID'], 'uni-ol') !== false) {
             $additional_classes .= ' uni-oldenburg';
         };
         // Uni Augsburg - only display on details page
-        // TODO still working?
+        // TODO still working? INSTALLATION_ID?
         if (strpos($GLOBALS['ABSOLUTE_URI_STUDIP'], 'augsburg') !== false) {
             if (basename($_SERVER['SCRIPT_FILENAME']) !== 'details.php') {
                 return;

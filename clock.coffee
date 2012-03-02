@@ -26,10 +26,10 @@
                 when 'l' then days[timestamp.getDay()].toLocaleString()
                 when 'm' then pad(timestamp.getMonth() + 1)
                 when 'Y' then (timestamp.getYear() % 100) + 2000
-                else 
+                else
                     if method? then pad timestamp[method]() else token
 
-    class Clock 
+    class Clock
         constructor: (element = '.clockip', @offset = 0, @format = 'H:i:s') ->
             @element = $(element)
             @interval = null
@@ -43,13 +43,16 @@
             now = (new Date()).getTime()
             time = date(@format, now + @offset)
 
-            @element.text time
+            if time isnt @last
+                @element.text time
+                @last = time
         start: =>
             @stop()
             @interval = setInterval(@display, 100)
         stop: =>
             clearInterval(interval) if @interval?
             @interval = null
+            @last = null
 
     # initialize upon domready
     $ ->

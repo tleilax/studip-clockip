@@ -69,7 +69,10 @@ var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments)
       var now, time;
       now = (new Date()).getTime();
       time = date(this.format, now + this.offset);
-      return this.element.text(time);
+      if (time !== this.last) {
+        this.element.text(time);
+        return this.last = time;
+      }
     };
 
     Clock.prototype.start = function() {
@@ -79,7 +82,8 @@ var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments)
 
     Clock.prototype.stop = function() {
       if (this.interval != null) clearInterval(interval);
-      return this.interval = null;
+      this.interval = null;
+      return this.last = null;
     };
 
     return Clock;

@@ -3,11 +3,13 @@
   position: absolute;
   right: 6px;
   top: 128px;
-  z-index: 10; }
+  z-index: 1; }
   .clockip.uni-oldenburg {
-    color: #444444;
-    right: 35px;
-    top: 166px; }
+    color: #888;
+    font-family: MetaWeb, Delicious, Arial, Sans-Serif;
+    font-size: 1.5em;
+    right: 45px;
+    top: 132px; }
   .clockip.uni-augsburg {
     font-size: 13px; }
     .clockip.uni-augsburg.sidebar {
