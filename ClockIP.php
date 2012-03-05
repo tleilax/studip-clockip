@@ -34,6 +34,9 @@ class ClockIP extends StudipPlugin implements SystemPlugin
     // Local changes:
         // Uni Oldenburg
         if (strpos($GLOBALS['STUDIP_INSTALLATION_ID'], 'uni-ol') !== false) {
+            if (!PageLayout::isHeaderEnabled()) {
+                return;
+            }
             $additional_classes .= ' uni-oldenburg';
         };
         // Uni Augsburg - only display on details page
