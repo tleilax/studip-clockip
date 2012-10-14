@@ -1,6 +1,6 @@
 var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
-(function($, STUDIP) {
+(function($) {
   var Clock, date, pad;
   if (!(typeof STUDIP === 'object' && typeof $ === 'function')) {
     throw 'No Stud.IP environment';
@@ -81,7 +81,7 @@ var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments)
     };
 
     Clock.prototype.stop = function() {
-      if (this.interval != null) clearInterval(interval);
+      if (this.interval != null) clearInterval(this.interval);
       this.interval = null;
       return this.last = null;
     };
@@ -100,4 +100,4 @@ var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments)
     _(clock.start).defer();
     return STUDIP.CLOCK = clock;
   });
-})(jQuery, STUDIP);
+})(jQuery);

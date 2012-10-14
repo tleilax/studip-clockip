@@ -1,4 +1,4 @@
-( ($, STUDIP) ->
+(($) ->
     throw 'No Stud.IP environment' unless typeof STUDIP is 'object' and typeof $ is 'function'
     throw 'Invalid jQuery version, required version is 1.4.3' unless $.fn? and $.fn.jquery? and $.fn.jquery >= '1.4.3'
 
@@ -50,7 +50,7 @@
             @stop()
             @interval = setInterval(@display, 100)
         stop: =>
-            clearInterval(interval) if @interval?
+            clearInterval(@interval) if @interval?
             @interval = null
             @last = null
 
@@ -70,4 +70,4 @@
 
         STUDIP.CLOCK = clock
 
-)(jQuery, STUDIP)
+)(jQuery)
