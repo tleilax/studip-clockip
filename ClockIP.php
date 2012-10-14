@@ -9,7 +9,7 @@
  *
  * @author      Jan-Hendrik Willms <tleilax+studip@gmail.com>
  * @license     http://www.gnu.org/licenses/gpl-2.0.html GPL version 2
- * @version     1.2
+ * @version     1.5
  */
 
 if ($GLOBALS['SOFTWARE_VERSION'] >= '2.2') {
@@ -73,6 +73,10 @@ class ClockIP extends StudipPlugin implements SystemPlugin
 
         // Add css and js to page
         PageLayout::addScript($this->getPluginURL() . '/clock.js');
-        $this->addStylesheet('clock.less');
+        if ($GLOBALS['SOFTWARE_VERSION'] > '2.3') {
+            $this->addStylesheet('clock.less');
+        } else {
+            PageLayout::addStylesheet($this->getPluginURL() . '/clock.css');
+        }
     }
 }
