@@ -1,0 +1,31 @@
+.clockip {
+    color: @brand-color-lighter;
+    position: absolute;
+    right: 15px;
+    top: 128px;
+
+    &.uni-oldenburg {
+        color: #888;
+        font-family: MetaWeb, Delicious, Arial, Sans-Serif;
+        font-size: 1.5em;
+        right: 45px;
+        top: 132px;
+    }
+
+    &.uni-augsburg {
+        font-size: 13px;
+        &.sidebar {
+            color: red;
+            font-size: 14px;
+            left: 0;
+            position: relative;
+            top: 0;
+        }
+    }
+}
+
+@media print {
+    .clockip {
+        display: none;
+    }
+}

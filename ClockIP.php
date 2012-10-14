@@ -73,6 +73,6 @@ class ClockIP extends StudipPlugin implements SystemPlugin
 
         // Add css and js to page
         PageLayout::addScript($this->getPluginURL() . '/clock.js');
-        PageLayout::addStylesheet($this->getPluginURL() . '/clock.css');
+        $this->addStylesheet('clock.less');
     }
 }
