@@ -1,53 +1,31 @@
-.clearfix {
-  *zoom: 1;
-}
-.clearfix:before,
-.clearfix:after {
-  display: table;
-  content: "";
-  line-height: 0;
-}
-.clearfix:after {
-  clear: both;
-}
-.hide-text {
-  font: 0/0 a;
-  color: transparent;
-  text-shadow: none;
-  background-color: transparent;
-  border: 0;
-}
-.input-block-level {
-  display: block;
-  width: 100%;
-  min-height: 30px;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
 .clockip {
-  color: #899ab9;
   position: absolute;
-  right: 15px;
   top: 128px;
-}
-.clockip.uni-oldenburg {
+  right: 15px;
+  z-index: 1;
   color: #888;
+}
+
+.clockip.uni-oldenburg {
+  top: 88px;
+  right: 15px;
   font-family: MetaWeb, Delicious, Arial, Sans-Serif;
   font-size: 1.5em;
-  right: 45px;
-  top: 132px;
+  color: #888;
 }
+
 .clockip.uni-augsburg {
   font-size: 13px;
 }
+
 .clockip.uni-augsburg.sidebar {
-  color: red;
-  font-size: 14px;
-  left: 0;
   position: relative;
   top: 0;
+  left: 0;
+  font-size: 14px;
+  color: red;
 }
+
 @media print {
   .clockip {
     display: none;

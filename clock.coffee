@@ -57,6 +57,9 @@
     # initialize upon domready
     $ ->
         clock = new Clock
+        if clock.element.hasClass('uni-oldenburg') && $('header').length is 0
+          clock.element.hide()
+          return
         if clock.element.hasClass('uni-augsburg')
             infobox_clock = $ """
                               <b>Aktuelle Serverzeit:</b><br>
