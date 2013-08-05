@@ -1,7 +1,7 @@
 pluginname=Clock.IP
-description=Eine Uhr für Stud.IP
+description=Eine Uhr fï¿½r Stud.IP
 origin=UOL
-version=1.5
+version=1.6
 studipMinVersion=2.0
 studipMaxVersion=2.4
 pluginclassname=ClockIP
