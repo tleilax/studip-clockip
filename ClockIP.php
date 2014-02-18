@@ -18,7 +18,9 @@ if ($GLOBALS['SOFTWARE_VERSION'] >= '2.2') {
 
 class ClockIP extends StudipPlugin implements SystemPlugin
 {
-    const FORMAT = 'l, d.m.Y H:i:s';
+    const FORMAT        = 'l, d.m.Y H:i:s';
+    const MEDIUM_FORMAT = '(max-width:480px)d.m.Y H:i:s';
+    const SMALL_FORMAT  = '(max-width:320px)H:i:s';
 
     function __construct()
     {
@@ -59,9 +61,11 @@ class ClockIP extends StudipPlugin implements SystemPlugin
         $timestamp = date($format);
 
         // Add clock to page
-        $html = sprintf('<div class="clockip%s" data-format="%s" data-timestamp="%u">%s</div>',
+        $html = sprintf('<div class="clockip%s" data-format="%s" data-mediumformat="%s" data-smallformat="%s" data-timestamp="%u">%s</div>',
             $additional_classes,
             self::FORMAT,
+            self::MEDIUM_FORMAT,
+            self::SMALL_FORMAT,
             floor(microtime(true) * 1000),
             $timestamp
         );
