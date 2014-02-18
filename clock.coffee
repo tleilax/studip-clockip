@@ -36,12 +36,13 @@
 
             metadata = @element.data() ? {}
             @format = metadata.format if metadata.format?
-            if metadata.mediumformat?
-                tokens = metadata.mediumformat.split(')')
-                @format = tokens[1] if window.matchMedia(tokens[0] + ')').matches
-            if metadata.smallformat?
-                tokens = metadata.smallformat.split(')')
-                @format = tokens[1] if window.matchMedia(tokens[0] + ')').matches
+            if 'matchMedia' in window
+                if metadata.mediumformat?
+                    tokens = metadata.mediumformat.split(')')
+                    @format = tokens[1] if window.matchMedia(tokens[0] + ')').matches
+                if metadata.smallformat?
+                    tokens = metadata.smallformat.split(')')
+                    @format = tokens[1] if window.matchMedia(tokens[0] + ')').matches
             @adjust(metadata.timestamp) if metadata.timestamp?
         adjust: (timestamp) =>
             @offset = if timestamp then timestamp - (new Date()).getTime() else 0
